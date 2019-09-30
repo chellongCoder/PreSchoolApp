@@ -1,0 +1,33 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-standard",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
+  "jsRules": {},
+  "rules": {
+    "ordered-imports": [
+      false
+    ],
+    "object-literal-sort-keys": [
+      false
+    ],
+    "no-console": false,
+    "no-empty-interface": false,
+    "jsx-no-lambda": false,
+    "jsx-boolean-value": false,
+    "member-access": false,
+    "curly": false,
+    "one-variable-per-declaration": false,
+    "prefer-const": false,
+    "variable-name": false,
+    "comment-format": false,
+    "max-classes-per-file": false,
+    "no-string-literal": false,
+    "jsx-self-close": false,
+    "no-var-requires": false
+  },
+  "rulesDirectory": []
+}

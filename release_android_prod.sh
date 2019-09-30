@@ -1,0 +1,1 @@
+code-push release-react Smartcom Viettel-ANDROID android --dev false -k private.pem --deploymentName Production

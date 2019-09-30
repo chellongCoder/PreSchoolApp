@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "805512576720",
+    "firebase_url": "https://mobx-base-starter.firebaseio.com",
+    "project_id": "mobx-base-starter",
+    "storage_bucket": "mobx-base-starter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805512576720:android:3bf42d03fd3f89a1",
+        "android_client_info": {
+          "package_name": "com.PreSchoolApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "805512576720-qpt4vfops3dshab3hrc38b86kcahodjc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.PreSchoolApp",
+            "certificate_hash": "c15e89548d7ca3609e0241bda0727346bdb69926"
+          }
+        },
+        {
+          "client_id": "805512576720-g743u2fvhgv0mqq9u03gfovfo80oqabn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2yp7OZUBcm3KgPN4lzfsrIQwIUn3xmek"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "805512576720-g743u2fvhgv0mqq9u03gfovfo80oqabn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "805512576720-9r1ci5ensskkl49m2tu2nolma2demtnk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.PreSchoolApp"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

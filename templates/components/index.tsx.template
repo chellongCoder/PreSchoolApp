@@ -1,0 +1,27 @@
+import * as React from 'react';
+import styles from './styles';
+import {
+    View,
+    Text
+} from 'react-native';
+
+export interface I<%=name%>Props {
+}
+
+export interface I<%=name%>State {
+}
+
+export default class <%=name%> extends React.Component<I<%=name%>Props, I<%=name%>State> {
+
+    constructor(props: I<%=name%>Props) {
+        super(props);
+    }
+
+    public render() {
+        return (
+            <View style={styles.container}>
+                <Text><%=name%> Component</Text>
+            </View>
+        );
+    }
+}

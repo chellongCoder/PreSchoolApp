@@ -1,0 +1,1 @@
+code-push release-react Smartcom Viettel-IOS ios --dev true -k private.pem

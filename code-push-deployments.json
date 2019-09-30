@@ -1,0 +1,10 @@
+{
+  "android": {
+    "production": "GG7H7XxnIDxZOVerCtolY3zWr5MX8b0c3e28-28ea-4090-96b5-dbc3fdb4640b",
+    "staging": "BXAmf71Vk5i7AmG2zbGGr_04aGeV8b0c3e28-28ea-4090-96b5-dbc3fdb4640b"
+  },
+  "ios": {
+    "production": "wkDYamwhm_11Bjqih6ic8Jr5VJib8b0c3e28-28ea-4090-96b5-dbc3fdb4640b",
+    "staging": "ySvgYqxnYhQz949Zcz-eeKNX8Mjc8b0c3e28-28ea-4090-96b5-dbc3fdb4640b"
+  }
+}

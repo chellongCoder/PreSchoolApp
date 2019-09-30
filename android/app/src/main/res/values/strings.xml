@@ -1,0 +1,14 @@
+<resources>
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">GG7H7XxnIDxZOVerCtolY3zWr5MX8b0c3e28-28ea-4090-96b5-dbc3fdb4640b</string>
+    <string name="app_name">PreSchoolApp</string>
+    <string name="CodePushPublicKey">-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqiaJNaqsjY0y2aQvvk7r
+fukWeWnWZZJ/dIAmZwXTnAJA2RRX0DeApqVlXQv9Cfuk5IyxRs+F3fIFdqimKvWD
+TJ6DnDIb051Ane6FANlYP+/DnW5xVU7oQG7ml9KOx7GyFsmQoEXc7daT2NEwl5O9
+n4Tmg2OMkh7hSwZQaD/UJRIVXp4mCGBapJvCxN4kJIi/xPoZ1WiVMdYvtigNnJo+
+a/S3m3rSUag4RhRYS4ZQKNPNoXaHT7dgM7QSFNAcQ8tKGQ9Q7AB20FOaqef63eqG
+HHNhnuDXEyXMkx5djgg9Rb80L7KFmorcK+AlzFRk8nvAdwhLguOHYI2UaY+E7WfA
+NQIDAQAB
+-----END PUBLIC KEY-----</string>
+    <string name="facebook_app_id">380847096033251</string>
+</resources>
