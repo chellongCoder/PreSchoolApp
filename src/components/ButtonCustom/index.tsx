@@ -5,7 +5,8 @@ import {
     TouchableOpacity
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import { color1, color2, color3, color4, color5 } from '../../config';
+import { color1, color2, color3, color4, color5, color6, color7 } from '../../config';
+import commonColor from '../../utils/commonColor';
 
 export interface IButtonCustomProps {
     text:string;
@@ -46,12 +47,18 @@ export default class ButtonCustom extends React.Component<IButtonCustomProps, IB
             case 'color5':
                 checkColors = [color5.color1, color5.color2];
                 break;
+            case 'color6':
+                checkColors = [color6.color1, color6.color2];
+                break;
+            case 'color7':
+                checkColors = [color7.color1, color7.color2];
+                break;
         }
 
         return (
             <TouchableOpacity style={styles.container} onPress={onPress}>
                 <LinearGradient colors={checkColors} style={styles.btn}>
-                    <Text style={styles.text}>{text}</Text>
+                    <Text style={[styles.text, {color: colors==="color7" ? commonColor.textColor : commonColor.textColorWhite}]}>{text}</Text>
                 </LinearGradient>
             </TouchableOpacity>
         );

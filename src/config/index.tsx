@@ -23,5 +23,15 @@ export const color5 = {
     color2: '#6196FD',
 };
 
+export const color6 = {
+    color1: '#66A6E0',
+    color2: '#0081F6',
+};
+
+export const color7 = {
+    color1: '#FFFFFF',
+    color2: '#FFFFFF',
+};
+
 export const whiteSolid = '#FFFFFF';
 export const graySolid = '#A6A6A6';

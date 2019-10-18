@@ -1,8 +1,10 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 import QualificationTest from '../screens/QualificationTest';
-import Login from '../screens/Login';
 import SignUp from '../screens/SignUp';
+import Login from '../screens/Login1';
+import WelcomeScreen from '../screens/Welcome';
+import BottomTabbar from '../screens/BottomTabbar';
 
 const routeConfig = {
     QualificationTest: {
@@ -13,11 +15,17 @@ const routeConfig = {
     },
     SignUp: {
         screen: SignUp,
+    },
+    Welcome: {
+        screen: WelcomeScreen
+    },
+    BottomTabbar: {
+        screen: BottomTabbar
     }
 };
 
 const navigatorConfig = {
-    initialRouteName: 'QualificationTest',
+    initialRouteName: 'BottomTabbar',
     defaultNavigationOptions: {
         header: null,
     },

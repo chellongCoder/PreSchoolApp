@@ -12,6 +12,10 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         flexDirection: 'row',
+        shadowColor: '#000',
+        shadowOffset: { width: 2, height: 5 },
+        shadowOpacity: 0.3,
+        shadowRadius: 10,
     },
     btn: {
         width: '100%',
@@ -27,7 +31,6 @@ const styles = StyleSheet.create({
         width: '100%',
         textAlign: 'center',
         fontSize: wp('4%'),
-        fontWeight: 'bold',
     }
 });
 
