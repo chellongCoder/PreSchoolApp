@@ -25,6 +25,7 @@
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		2F770A22548A491495280B54 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1DBF137273BE4AAEA675290E /* Foundation.ttf */; };
 		396B8873EB9442968E69B4E2 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 219C8CC72A2E415AB40A45FF /* Entypo.ttf */; };
+		3FF1D6973D7C857E5016D275 /* libPods-PreSchoolApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 764128966BE234EAA71994F1 /* libPods-PreSchoolApp.a */; };
 		46F204BAC46449709096A259 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 297EA6F5AAD449CDBE60A5B2 /* Roboto.ttf */; };
 		4B3B9D1F67CA4F0FA9ECEF01 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8651B9C5124E478EA4E4774C /* FontAwesome.ttf */; };
 		4C398DC8692A4BC388C0EE7D /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0851E440354842A3883A249C /* Octicons.ttf */; };
@@ -460,9 +461,11 @@
 		60E9C4C501DC4B08BB2E0FD1 /* libRCTVideo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTVideo.a; sourceTree = "<group>"; };
 		6D62ECFF50274E52BE808181 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		71BE355493ED40CF9F3D1380 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		764128966BE234EAA71994F1 /* libPods-PreSchoolApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PreSchoolApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7B39F53E705F4AA1BEAF0C53 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		7B9B034B330D47EB89FD52F4 /* libRNGestureHandler.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGestureHandler.a; sourceTree = "<group>"; };
+		7DD9B7DBF66507CB4AA09B16 /* Pods-PreSchoolApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PreSchoolApp.debug.xcconfig"; path = "Target Support Files/Pods-PreSchoolApp/Pods-PreSchoolApp.debug.xcconfig"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8651B9C5124E478EA4E4774C /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		8B7889C19C5847758302F951 /* libSplashScreen.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSplashScreen.a; sourceTree = "<group>"; };
@@ -489,6 +492,7 @@
 		EC7078B722AD4359803A5D56 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		EFE43C3D952C40AE90DDB7A4 /* libRNSound.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSound.a; sourceTree = "<group>"; };
 		F1317205F67A4052A5F41676 /* libRCTOrientation.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTOrientation.a; sourceTree = "<group>"; };
+		F69C60AD1416E7FA38260E10 /* Pods-PreSchoolApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PreSchoolApp.release.xcconfig"; path = "Target Support Files/Pods-PreSchoolApp/Pods-PreSchoolApp.release.xcconfig"; sourceTree = "<group>"; };
 		FE2B4123ADFD4E9B88DDA454 /* RNI18n.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNI18n.xcodeproj; path = "../node_modules/react-native-i18n/ios/RNI18n.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -520,6 +524,7 @@
 				AA48BD4D704D41499283082A /* libSplashScreen.a in Frameworks */,
 				B16019A4E03D4BE3973D2E0F /* libRNVectorIcons.a in Frameworks */,
 				84DE5021441F4C12A5320B6C /* libRCTVideo.a in Frameworks */,
+				3FF1D6973D7C857E5016D275 /* libPods-PreSchoolApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +571,15 @@
 				00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		00CECC10CDF225399541E063 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7DD9B7DBF66507CB4AA09B16 /* Pods-PreSchoolApp.debug.xcconfig */,
+				F69C60AD1416E7FA38260E10 /* Pods-PreSchoolApp.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		00E356EF1AD99517003FC87E /* SmartcomViettelTests */ = {
@@ -647,6 +661,7 @@
 			children = (
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 				5489E82FD2E3493B875B8441 /* libz.tbd */,
+				764128966BE234EAA71994F1 /* libPods-PreSchoolApp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -718,6 +733,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				9D2BA0F8F5A34CA594670393 /* Resources */,
 				A816FA1E2320F6BA006AC94D /* Recovered References */,
+				00CECC10CDF225399541E063 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -879,10 +895,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "PreSchoolApp" */;
 			buildPhases = (
+				E83B90D0761760DF69073A9A /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				23201BBE8C933513E3C7C704 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1429,6 +1447,46 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
+		23201BBE8C933513E3C7C704 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PreSchoolApp/Pods-PreSchoolApp-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PreSchoolApp/Pods-PreSchoolApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E83B90D0761760DF69073A9A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PreSchoolApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1458,11 +1516,16 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DD9B7DBF66507CB4AA09B16 /* Pods-PreSchoolApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = SAAJG3ANPM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
@@ -1493,10 +1556,15 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F69C60AD1416E7FA38260E10 /* Pods-PreSchoolApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SAAJG3ANPM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
