@@ -68,6 +68,10 @@ const commonStyles = StyleSheet.create({
     fontSize: moderateScale(commonColor.fontSizeHeader),
     color: commonColor.textHeader
   },
+  textTitle: {
+    fontSize: moderateScale(24),
+    color: commonColor.whitebackground
+  },
   textButton: {
     fontSize: verticalScale(commonColor.DefaultFontSize),
     color: commonColor.textButton,

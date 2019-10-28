@@ -1,17 +1,25 @@
 import React, { Component } from 'react'
-import { Text, View, Animated, ScrollView } from 'react-native'
+import { Text, View, Animated, ScrollView, SafeAreaView, FlatList } from 'react-native'
 import styles from './styles';
 import HeaderCommon from '../../components/HeaderCommon';
 import commonColor from '../../utils/commonColor';
-interface IProps {
+import {moderateScale} from '../../utils/scale';
+import CardMoment from '../../components/CardMoment';
+import {observer, inject} from 'mobx-react';
+import {MommentStore} from '../../stores/moment.store';
+import {IC_SEARCH} from '../../utils/icons';
 
-}
 interface IState {
   scrollY: Animated.Value
 }
-const HEADER_EXPANDED_HEIGHT = commonColor.deviceHeight/6;
-const HEADER_COLLAPSED_HEIGHT = 80;
+const HEADER_EXPANDED_HEIGHT = moderateScale(110);
+const HEADER_COLLAPSED_HEIGHT =moderateScale(60);
 
+interface IProps {
+  momentStore: MommentStore;
+}
+@inject('momentStore')
+@observer
 export default class Moment extends Component<IProps, IState> {
   constructor(props) {
     super(props);
@@ -19,6 +27,13 @@ export default class Moment extends Component<IProps, IState> {
       scrollY: new Animated.Value(0)
     }
   }
+
+  renderItem = ({item}) => {
+    return (
+      <CardMoment moment={item} key={item.id}/>
+    )
+  }
+
   render() {
     const headerHeight = this.state.scrollY.interpolate({
       inputRange: [0, HEADER_EXPANDED_HEIGHT-HEADER_COLLAPSED_HEIGHT],
@@ -37,27 +52,29 @@ export default class Moment extends Component<IProps, IState> {
     });
     const flexExpanded = this.state.scrollY.interpolate({
       inputRange: [0, HEADER_EXPANDED_HEIGHT-HEADER_COLLAPSED_HEIGHT],
-      outputRange: [4/10, 1],
+      outputRange: [6/10, 1],
       extrapolate: 'clamp'
     });
     const flexColapsed = this.state.scrollY.interpolate({
       inputRange: [0, HEADER_EXPANDED_HEIGHT-HEADER_COLLAPSED_HEIGHT],
-      outputRange: [4/10, 1/10],
+      outputRange: [4/10, 0.01/10],
       extrapolate: 'clamp'
     });
 
     console.log("render");
     return (
       <View style={styles.container}>
-        <HeaderCommon 
+        <HeaderCommon
+          iconRight={IC_SEARCH}
+          title="MOMENTS"
           headerHeight={headerHeight}
           headerTitleOpacity={headerTitleOpacity}
           heroTitleOpacity={heroTitleOpacity}
           flexExpanded={flexExpanded}
           flexColapsed={flexColapsed}
         />
-        <ScrollView
-          style={{paddingTop: HEADER_EXPANDED_HEIGHT}}
+        <FlatList
+          scrollEnabled={this.props.momentStore.moments.length > 0}
           onScroll={Animated.event(
             [{ nativeEvent: {
                 contentOffset: {
@@ -66,20 +83,11 @@ export default class Moment extends Component<IProps, IState> {
               }
             }])
           }
-          scrollEventThrottle={16}>
-          <Text style={styles.title}>This is Title</Text>
-          <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</Text>
-          <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</Text>
-          <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</Text>
-          <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</Text>
-
-          <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</Text>
-          <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</Text>
-          <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</Text>
-
-          <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</Text>
-          <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</Text>
-        </ScrollView>
+          scrollEventThrottle={16}
+          keyExtractor={(item) => `${item.id}`}
+          data={this.props.momentStore.moments}
+          renderItem={this.renderItem}
+        />
       </View>
     )
   }

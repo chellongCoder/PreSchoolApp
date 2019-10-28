@@ -10,8 +10,11 @@ import {observable, action} from 'mobx';
 import {IC_USERNAME, IC_PASSWORD, IC_VIEW_PASSWORD, IC_SHOW_PASSWORD} from '../../utils/icons';
 import {ButtonCustom} from '../../components';
 
+interface IProps {
+    navigation: any
+}
 @observer
-export default class Login extends Component {
+export default class Login extends Component<IProps> {
     @observable isFocusUsername: boolean = false;
     @observable isFocusPassword: boolean = false;
     @observable isShowPassword: boolean = false;
@@ -34,6 +37,10 @@ export default class Login extends Component {
 
     @action onShowPassword = () => {
         this.isShowPassword = !this.isShowPassword;
+    }
+
+    onLogin = () => {
+        this.props.navigation.navigate("BottomTabbar")
     }
     render() {
         return (<View style={styles.container}>
@@ -78,7 +85,9 @@ export default class Login extends Component {
                         </View>
                     </View>
                     <View style={styles.buttonLogin}>
-                        <ButtonCustom colors='color6' text='Sign in' />
+                        <ButtonCustom 
+                        onPress={this.onLogin}
+                        colors='color6' text='Sign in' />
                         <Text style={[commonStyles.buttonText, {marginTop: moderateScale(20)}]}>
                             Forgot password?
                         </Text>

@@ -1,36 +1,37 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, Dimensions } from 'react-native'
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import { Text, View, StyleSheet, SafeAreaView, FlatList } from 'react-native'
+import CardMoment from '../../components/CardMoment'
+import styles from './styles'
+import HeaderCommon from '../../components/HeaderCommon'
+import CardNotification from '../../components/CardNotification'
+import {inject, observer} from 'mobx-react'
+import {NotificationStore, INotification} from '../../stores/notification.store'
 
-const { width, height } = Dimensions.get('window');
-
-const ASPECT_RATIO = width / height;
-const LATITUDE = 21.0245;
-const LONGITUDE = 105.84117;
-const LATITUDE_DELTA = 0.2;
-const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
-
-export default class Notification extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-    };
+interface IProps {
+  notificationStore: NotificationStore
+}
+@inject("notificationStore")
+@observer
+export default class Notification extends Component<IProps> {
+  renderItem = ({item, index}) => {
+    return (
+      <CardNotification key={index}/>
+    )
   }
   render() {
-        return <MapView style = {styles.map}
-            initialRegion = {{
-                latitude: 13.139238380834923,
-                longitude: 80.25188422300266,
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421,
-                }}/>;
-    }
+    return (
+      <View style={styles.container}>
+         <HeaderCommon
+            title="NOTIFICATIONS"
+        />
+        <FlatList
+          scrollEventThrottle={16}
+          keyExtractor={(item: INotification) => `${item.id}`}
+          data={this.props.notificationStore.notifocations}
+          renderItem={this.renderItem}
+        />
+        
+      </View>    
+    )
+  }
 }
-
-const styles = StyleSheet.create({
-    map: {
-        height: 100,
-        flex: 1
-        }
-});

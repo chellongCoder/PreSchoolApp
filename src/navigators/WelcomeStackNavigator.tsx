@@ -5,6 +5,8 @@ import SignUp from '../screens/SignUp';
 import Login from '../screens/Login1';
 import WelcomeScreen from '../screens/Welcome';
 import BottomTabbar from '../screens/BottomTabbar';
+import StudentInfo from '../screens/StudentInfo';
+import StudentDetail from '../screens/StudentDetail';
 
 const routeConfig = {
     QualificationTest: {
@@ -21,11 +23,17 @@ const routeConfig = {
     },
     BottomTabbar: {
         screen: BottomTabbar
+    },
+    StudentInfo: {
+        screen: StudentInfo
+    },
+    StudentDetail: {
+        screen: StudentDetail
     }
 };
 
 const navigatorConfig = {
-    initialRouteName: 'BottomTabbar',
+    initialRouteName: 'StudentDetail',
     defaultNavigationOptions: {
         header: null,
     },

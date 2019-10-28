@@ -1,31 +1,29 @@
 import {StyleSheet} from 'react-native';
 import commonColor from '../../utils/commonColor';
 import {moderateScale} from '../../utils/scale';
+import { isIphoneX } from 'react-native-iphone-x-helper'
 
 const styles = StyleSheet.create({
     container: {
         width: commonColor.deviceWidth,
-        height: commonColor.deviceHeight/4,
         justifyContent: 'flex-end',
-        position: 'absolute',
+        position: 'relative',
         top: 0,
         left: 0,
-        zIndex: 9999,
+        zIndex: 999,
         shadowColor: '#000',
         shadowOffset: { width: 2, height: 5 },
         shadowOpacity: 0.3,
         shadowRadius: 10,
+        height: moderateScale(110),
         paddingHorizontal: moderateScale(10),
-        backgroundColor: commonColor.whitebackground
+        backgroundColor: 'rgba(255, 255, 255, 0.8)',
     },
     iconContainer: {
         flexDirection: 'row',
-        flex: 4/10,
-        alignItems: 'flex-end',
+        alignItems: isIphoneX() ? 'flex-end' : 'center',
     },
     titleContainer: {
-        flex: 3/10,
-        
     }
 });
 

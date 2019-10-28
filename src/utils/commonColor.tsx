@@ -49,6 +49,7 @@ export default {
     segmentActiveTextColor: '#3F51B5',
     segmentBorderColor: '#CFCFCF',
     segmentBorderColorMain: '#3F51B5',
+    cardBackGround: "#2A2E43",
 
     // New Variable
     get defaultTextColor() {
@@ -175,7 +176,7 @@ export default {
 
     // Font
     fontFamily: platform === 'ios' ? 'System' : 'Roboto',
-    fontSizeBase: 14,
+    fontSizeBase: 16,
     //border
     noteBorder: '#FFE470',
     inputBlurBorderColor: '#47DE99',

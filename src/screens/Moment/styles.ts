@@ -1,14 +1,15 @@
 import {StyleSheet} from 'react-native';
+import {moderateScale} from '../../utils/scale';
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
     },
     title: {
-        marginVertical: 16,
+        marginVertical: moderateScale(16),
         color: "black",
         fontWeight: "bold",
-        fontSize: 24
+        fontSize: moderateScale(24)
       }
 })
 

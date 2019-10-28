@@ -4,7 +4,6 @@ import styles from './styles';
 import {IC_INFO_STUDENT} from '../../utils/icons';
 import commonStyles from '../../utils/commonStyles';
 import {moderateScale} from '../../utils/scale';
-import commonColor from '../../utils/commonColor';
 import IconDashboard from '../IconDashboard';
 
 interface IProps {

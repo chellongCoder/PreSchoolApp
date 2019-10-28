@@ -17,8 +17,13 @@ export const IC_FEE = require('../../assets/icon/feeIcon.png');
 export const IC_SCHOOL_INFO = require('../../assets/icon/schoolInfo.png');
 export const IC_BACK = require('../../assets/icon/backIcon.png');
 export const IC_FILTER = require('../../assets/icon/iconFilter.png');
-
-
+export const IC_DOWN = require('../../assets/icon/down.png');
+export const IC_SHARE = require('../../assets/icon/share.png');
+export const IC_LIKE = require('../../assets/icon/like.png');
+export const IC_HANDDOWN = require('../../assets/icon/handdown.png');
+export const IC_SEARCH = require('../../assets/icon/icons-search.png');
+export const IC_X = require('../../assets/icon/icons-x.png');
+export const IC_NEXT = require('../../assets/icon/icons-next.png');
 
 
 

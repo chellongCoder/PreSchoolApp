@@ -1,5 +1,6 @@
 import { AsyncStorage } from 'react-native';
 import { EASY } from '../config';
+import {moderateScale} from './scale';
 
 export const ACCESS_KEY = 'ACCESSKEY';
 export const LEVEL_KEY = 'LEVELKEY';
@@ -45,3 +46,7 @@ export const setLanguage = async (lang: any) => {
     await AsyncStorage.removeItem(LANGUAGE_KEY);
     return AsyncStorage.setItem(LANGUAGE_KEY, lang);
 };
+
+
+export const HEADER_EXPANDED_HEIGHT = moderateScale(110);
+export const HEADER_COLLAPSED_HEIGHT =moderateScale(60);
