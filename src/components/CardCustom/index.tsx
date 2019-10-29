@@ -16,7 +16,7 @@ export default class CardCustom extends Component<IProps> {
         {
             this.props.icons.map((value) => {
                 if(!value.key) {
-                    return <IconDashboard title={value.title} icon={value.icon}/>
+                    return <IconDashboard route={value.route} title={value.title} icon={value.icon}/>
                 } else {
                     return <IconDashboard title={value.title} icon={value.icon} style={{marginHorizontal: moderateScale(40)}}/>
                 }

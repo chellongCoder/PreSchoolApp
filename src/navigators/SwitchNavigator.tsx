@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import WelcomeStackNavigator from './WelcomeStackNavigator';
+import NavigationServices from './NavigationServices';
+import {View} from 'react-native';
+import LoadingCommon from '../components/LoadingCommon';
 
 const SwitchNavigator = createSwitchNavigator({
     WelcomeStackNavigator
@@ -14,7 +17,14 @@ class Container extends React.Component<any, any> {
     }
 
     render() {
-        return <AppContainer />;
+        return (
+            <View style={{flex: 1}}>
+                <AppContainer ref={navigatorRef => {
+                    NavigationServices.setTopLevelNavigator(navigatorRef);
+                }} />
+                <LoadingCommon/>
+            </View>
+        )
     }
 }
 export default Container;

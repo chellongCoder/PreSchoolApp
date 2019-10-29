@@ -33,7 +33,7 @@ const routeConfig = {
 };
 
 const navigatorConfig = {
-    initialRouteName: 'StudentDetail',
+    initialRouteName: 'Welcome',
     defaultNavigationOptions: {
         header: null,
     },

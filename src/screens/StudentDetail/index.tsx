@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, Image } from 'react-native'
 import styles from './styles';
-import {IC_SHARE} from '../../utils/icons';
+import {IC_SHARE, IC_SCHOOL, IC_CLASS, IC_BIRTHDAY, IC_GENDER, IC_INFO, IC_ADDRESS} from '../../utils/icons';
 import HeaderCommon from '../../components/HeaderCommon';
 import faker from 'faker';
 import commonStyles from '../../utils/commonStyles';
@@ -19,17 +19,19 @@ const student = {
     weight: (Math.random() * 100 + 1).toFixed(2),
     height: (Math.random() * 200 + 1).toFixed(2),
     avatar: faker.image.imageUrl(),
-    school_id: 1,
-    class_id: 1
+    school: 1,
+    class: 1
 }
 export default class StudentDetail extends Component {
     render() {
         const header = [
-            {avatar: ""},
-            {name: "Name"},
-            {birthday: "Birthday"},
-            {weight: "Weight"},
-            {height: "Height"},
+            {school: "school", icon: IC_SCHOOL},
+            {class: "class", icon: IC_CLASS},
+            {gender: "gender", icon: IC_GENDER},
+            {birthday: "birthday", icon: IC_BIRTHDAY},
+            {weight: "weight", icon: IC_INFO},
+            {height: "height", icon: IC_INFO},
+            {address: "address", icon: IC_ADDRESS},    
         ]
         return (
             <View style={styles.container}>
@@ -46,8 +48,13 @@ export default class StudentDetail extends Component {
                         header.map((value, index) => {
                             return (
                                 <View style={styles.content} key={index}>
-                                    <Text>{Object.keys(value)[0]}</Text>
-                                    <Text>  asdasd</Text>
+                                    <View style={{flex: 2/10}}>
+                                        {/* <Text>{Object.keys(value)[0]}</Text> */}
+                                        <Image source={value[Object.keys(value)[1]]}/>
+                                    </View>
+                                    <View style={{flex: 8/10}}>
+                                        <Text style={commonStyles.lightText}>{`${student[Object.keys(value)[0]]}`}</Text>
+                                    </View>
                                 </View>
                             )
                         })

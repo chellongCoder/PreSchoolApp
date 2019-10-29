@@ -6,16 +6,16 @@ import {
 } from 'react-native';
 import { graySolid } from '../../config';
 
-export interface IInputCustomProps {
+export interface InputCustomProps {
     placeholder:string;
 }
 
-export interface IInputCustomState {
+export interface InputCustomState {
 }
 
-export default class InputCustom extends React.Component<IInputCustomProps, IInputCustomState> {
+export default class InputCustom extends React.Component<InputCustomProps, InputCustomState> {
 
-    constructor(props: IInputCustomProps) {
+    constructor(props: InputCustomProps) {
         super(props);
     }
 

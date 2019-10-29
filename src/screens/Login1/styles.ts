@@ -25,6 +25,10 @@ const styles = StyleSheet.create({
         bottom: moderateScale(60),
         width: "100%",
         alignItems: 'center',
+    },
+    error: {
+        alignItems: 'center',
+        marginVertical: moderateScale(10),
     }
 })
 export default styles;

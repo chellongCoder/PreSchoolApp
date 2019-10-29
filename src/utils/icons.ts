@@ -24,6 +24,16 @@ export const IC_HANDDOWN = require('../../assets/icon/handdown.png');
 export const IC_SEARCH = require('../../assets/icon/icons-search.png');
 export const IC_X = require('../../assets/icon/icons-x.png');
 export const IC_NEXT = require('../../assets/icon/icons-next.png');
+export const IC_SCHOOL = require('../../assets/icon/ic_school.png');
+export const IC_CLASS = require('../../assets/icon/icon-classroom.png');
+export const IC_BIRTHDAY = require('../../assets/icon/icon-birthday.png');
+export const IC_INFO = require('../../assets/icon/icon-info.png');
+export const IC_ADDRESS = require('../../assets/icon/icon-address.png');
+export const IC_GENDER = require('../../assets/icon/icon-gender.png');
+export const IC_LOGOUT = require('../../assets/icon/icon-logout.png');
+
+
+
 
 
 

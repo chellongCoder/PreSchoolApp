@@ -14,12 +14,17 @@ const styles = StyleSheet.create({
         borderRadius: moderateScale(15),
     },
     content: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginTop: moderateScale(10),
+        marginLeft: moderateScale(20),
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     avatar: {
         marginTop: moderateScale(20),
         flexDirection: 'row',
         alignItems: 'center',
+        marginBottom: moderateScale(20),
     }
 })
 

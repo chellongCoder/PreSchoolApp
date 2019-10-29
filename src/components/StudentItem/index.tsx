@@ -1,18 +1,24 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, Image } from 'react-native'
+import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import {moderateScale} from '../../utils/scale';
 import commonStyles from '../../utils/commonStyles';
 import {IC_NEXT} from '../../utils/icons';
 import {IStudent} from '../../stores/student.store';
+import NavigationServices from '../../navigators/NavigationServices';
 
 interface IProp {
     student: IStudent
 }
 export default class StudentItem extends Component<IProp> {
+    navigateToDetail = () => {
+        NavigationServices.navigate('StudentDetail', null);
+    }
     render() {
         let {student} = this.props;
         return (
-            <View style={styles.container}>
+            <TouchableOpacity 
+            onPress={this.navigateToDetail}
+            style={styles.container}>
                 <View style={styles.info}>
                     <Text style={commonStyles.defaultText}> {student.first_name} </Text>
                     <Text style={commonStyles.textNote}> {student.gender} </Text>
@@ -20,7 +26,7 @@ export default class StudentItem extends Component<IProp> {
                 <View style={styles.icon}>
                     <Image source={IC_NEXT} style={commonStyles.imageMedium}/>
                 </View>
-            </View>
+            </TouchableOpacity>
         )
     }
 }

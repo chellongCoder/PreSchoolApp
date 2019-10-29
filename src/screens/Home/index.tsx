@@ -10,7 +10,8 @@ const icons = [
   {
     key: 0,
     icon: IC_INFO_STUDENT,
-    title: "Thông tin học sinh"
+    title: "Thông tin học sinh",
+    route: "StudentInfo"
   },
   {
     key: 1,

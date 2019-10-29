@@ -9,9 +9,8 @@ export const LEVEL_KEY = 'LEVELKEY';
  * AccessKey
  */
 export const getAccessKey = () => AsyncStorage.getItem(ACCESS_KEY);
-export const setAccessKey = (accesskey: string) => {
-    AsyncStorage.removeItem(ACCESS_KEY);
-
+export const setAccessKey = async (accesskey: string) => {
+    await AsyncStorage.removeItem(ACCESS_KEY);
     return AsyncStorage.setItem(ACCESS_KEY, accesskey);
 };
 export const clearAccessKey = () => AsyncStorage.removeItem(ACCESS_KEY);

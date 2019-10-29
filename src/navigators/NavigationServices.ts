@@ -1,0 +1,42 @@
+import { NavigationActions, StackActions } from 'react-navigation';
+
+let _navigator;
+
+function setTopLevelNavigator(navigatorRef) {
+  _navigator = navigatorRef;
+}
+
+function navigate(routeName, params) {
+  _navigator.dispatch(
+    NavigationActions.navigate({
+      routeName,
+      params,
+    })
+  );
+}
+
+function goBack() {
+  _navigator && _navigator.dispatch(NavigationActions.back());
+}
+
+function dispatch(action) {
+  _navigator.dispatch(action);
+}
+
+function resetStack (route: string) {
+  const goToLogin = StackActions.reset({
+    index: 0,
+    actions: [NavigationActions.navigate({ routeName: route })]
+  });
+  dispatch(goToLogin);
+}
+
+// add other navigation functions that you need and export them
+
+export default {
+  navigate,
+  setTopLevelNavigator,
+  dispatch,
+  goBack,
+  resetStack
+};

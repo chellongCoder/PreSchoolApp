@@ -11,7 +11,7 @@ import commonColor from '../../utils/commonColor';
 
 export default createAppContainer(createBottomTabNavigator(
     {
-    Moment,
+      Moment,
       Home,
       Notification
     },

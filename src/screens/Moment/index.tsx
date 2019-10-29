@@ -7,7 +7,10 @@ import {moderateScale} from '../../utils/scale';
 import CardMoment from '../../components/CardMoment';
 import {observer, inject} from 'mobx-react';
 import {MommentStore} from '../../stores/moment.store';
-import {IC_SEARCH} from '../../utils/icons';
+import {IC_SEARCH, IC_LOGOUT} from '../../utils/icons';
+import NavigationServices from '../../navigators/NavigationServices';
+import {UserStore} from '../../stores/user.store';
+import {LoadingStore} from '../../stores/loading.store';
 
 interface IState {
   scrollY: Animated.Value
@@ -17,8 +20,10 @@ const HEADER_COLLAPSED_HEIGHT =moderateScale(60);
 
 interface IProps {
   momentStore: MommentStore;
+  userStore: UserStore;
+  loadingStore: LoadingStore;
 }
-@inject('momentStore')
+@inject('momentStore', 'userStore', 'loadingStore')
 @observer
 export default class Moment extends Component<IProps, IState> {
   constructor(props) {
@@ -26,6 +31,13 @@ export default class Moment extends Component<IProps, IState> {
     this.state = {
       scrollY: new Animated.Value(0)
     }
+  }
+
+  logout = async () => {
+    NavigationServices.resetStack("Welcome");
+    this.props.loadingStore.actToggleLoading(true);
+    await this.props.userStore.logout();
+    this.props.loadingStore.actToggleLoading(false);
   }
 
   renderItem = ({item}) => {
@@ -65,13 +77,14 @@ export default class Moment extends Component<IProps, IState> {
     return (
       <View style={styles.container}>
         <HeaderCommon
-          iconRight={IC_SEARCH}
+          iconRight={IC_LOGOUT}
           title="MOMENTS"
           headerHeight={headerHeight}
           headerTitleOpacity={headerTitleOpacity}
           heroTitleOpacity={heroTitleOpacity}
           flexExpanded={flexExpanded}
           flexColapsed={flexColapsed}
+          onClickIconRight={this.logout}
         />
         <FlatList
           scrollEnabled={this.props.momentStore.moments.length > 0}
