@@ -1,6 +1,11 @@
 import {action, observable} from 'mobx';
 import APIBase  from '../services/api/base';
 import {api_login} from '../services/api';
+export const ROLE = {
+    SCHOOL: 10,
+    TEACHER: 11,
+    PARENT: 12
+}
 export interface ISchool {
     school_name: string,
     school_year: number,
@@ -48,7 +53,10 @@ export class UserStore {
         const username = this.username;
         const password = this.password;
         let [err, res] = await APIBase.getInstance().post(api_login(), { username, password, token_push: ""});
-        
+        if(res.role === ROLE.SCHOOL) {
+            this.errorLogin = "Tài khoản không chính xác";
+            return [this.errorLogin, null];
+        }
         this.errorLogin = err;
         if(!err && res) {
             this.user = res;

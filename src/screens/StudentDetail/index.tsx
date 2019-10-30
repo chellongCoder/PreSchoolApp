@@ -37,7 +37,7 @@ export default class StudentDetail extends Component {
             <View style={styles.container}>
                 <HeaderCommon
                     iconRight={IC_SHARE}
-                    title="MY STUDENT"
+                    title="STUDENT DETAIL"
                 />
                 <View style={styles.card}>
                     <View style={styles.avatar}>

@@ -16,6 +16,8 @@ export default createAppContainer(createBottomTabNavigator(
       Notification
     },
     {
+      lazy: true,
+      initialRouteName: "Home",
       /* Other configuration remains unchanged */
       defaultNavigationOptions: ({ navigation }) => ({
         tabBarIcon: ({ focused, horizontal, tintColor }) => {
@@ -46,6 +48,7 @@ export default createAppContainer(createBottomTabNavigator(
           // You can return any component that you like here!
           return <BadgeIcon image={image} badgeCount={10} size={25} color={tintColor} />;
         },
+        
       }),
       tabBarOptions: {
         activeTintColor: commonColor.textButton,

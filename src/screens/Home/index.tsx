@@ -5,13 +5,12 @@ import HeaderCustom from '../../components/HeaderCustom';
 import {Container} from 'native-base';
 import styles from './styles';
 import CardCustom from '../../components/CardCustom';
-import {IC_INFO_STUDENT, IC_STUDY_RESULT, IC_STUDY_GUIDE, IC_ABSENSE, IC_TEACHER, IC_FEE} from '../../utils/icons';
+import {IC_INFO_STUDENT, IC_STUDY_RESULT, IC_STUDY_GUIDE, IC_ABSENSE, IC_TEACHER, IC_FEE, IC_SCHOOL_INFO, IC_MEAL, IC_TKB} from '../../utils/icons';
 const icons = [
   {
     key: 0,
     icon: IC_INFO_STUDENT,
     title: "Thông tin học sinh",
-    route: "StudentInfo"
   },
   {
     key: 1,
@@ -42,18 +41,18 @@ const icons = [
 const icons2 = [
   {
     key: 0,
-    icon: IC_INFO_STUDENT,
-    title: "Thông tin học sinh"
+    icon: IC_SCHOOL_INFO,
+    title: "Thông tin trường học"
   },
   {
     key: 1,
-    icon: IC_STUDY_RESULT,
-    title: "Kết quả Học tập"
+    icon: IC_MEAL,
+    title: "Thực đơn"
   },
   {
     key: 0,
-    icon: IC_STUDY_GUIDE,
-    title: "Lộ trình học tập"
+    icon: IC_TKB,
+    title: "Thời khoá biểu"
   }
 ]
 export default class Home extends Component {

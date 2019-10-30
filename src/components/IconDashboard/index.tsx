@@ -4,16 +4,24 @@ import commonStyles from '../../utils/commonStyles';
 import commonColor from '../../utils/commonColor';
 import {moderateScale} from '../../utils/scale';
 import NavigationServices from '../../navigators/NavigationServices';
+import {inject, observer} from 'mobx-react';
+import {UserStore, ROLE} from '../../stores/user.store';
 
 interface IProps {
     icon: ImageSourcePropType,
     style?: StyleProp<ViewStyle>,
     title: string,
-    route?: string,
+    userStore: UserStore
 }
+@inject('userStore')
+@observer
 export default class IconDashboard extends Component<IProps> {
     navigate = () => {
-        NavigationServices.navigate(this.props.route, null);
+        if(this.props.userStore.user.role === ROLE.PARENT) {
+            NavigationServices.navigate("StudentDetail", null);    
+        } else {
+            NavigationServices.navigate("StudentInfo", null);
+        }
     }
   render() {
     return (
