@@ -23,7 +23,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.airbnb.android.react.maps.MapsPackage;
-
+import com.wix.RNCameraKit.RNCameraKitPackage;
 import java.util.Arrays;
 import java.util.List;
 
@@ -59,7 +59,8 @@ public class MainApplication extends Application implements ReactApplication {
             new CodePush(null, getApplicationContext(), BuildConfig.DEBUG),
             new SplashScreenReactPackage(),
             new RNI18nPackage(),
-            new RNGestureHandlerPackage()
+            new RNGestureHandlerPackage(),
+            new RNCameraKitPackage()
       );
     }
 

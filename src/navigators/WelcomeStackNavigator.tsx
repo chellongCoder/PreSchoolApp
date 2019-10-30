@@ -7,6 +7,7 @@ import WelcomeScreen from '../screens/Welcome';
 import BottomTabbar from '../screens/BottomTabbar';
 import StudentInfo from '../screens/StudentInfo';
 import StudentDetail from '../screens/StudentDetail';
+import Test from '../Test';
 
 const routeConfig = {
     QualificationTest: {
@@ -29,11 +30,14 @@ const routeConfig = {
     },
     StudentDetail: {
         screen: StudentDetail
+    },
+    Test: {
+        screen: Test
     }
 };
 
 const navigatorConfig = {
-    initialRouteName: 'Welcome',
+    initialRouteName: 'Test',
     defaultNavigationOptions: {
         header: null,
     },
