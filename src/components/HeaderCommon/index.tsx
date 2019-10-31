@@ -5,6 +5,7 @@ import {IC_BACK, IC_FILTER} from '../../utils/icons';
 import commonStyles from '../../utils/commonStyles';
 import commonColor from '../../utils/commonColor';
 import {moderateScale} from '../../utils/scale';
+import NavigationServices from '../../navigators/NavigationServices';
 interface IProps {
     title: string;
     headerHeight?: Animated.AnimatedInterpolation,
@@ -16,12 +17,15 @@ interface IProps {
     onClickIconRight?: () => void
 }
 export default class HeaderCommon extends Component<IProps> {
+    goBack = () => {
+        NavigationServices.goBack();
+    }
     render() {
         return (
             <Animated.View style={[styles.container, {height: this.props.headerHeight ? this.props.headerHeight : moderateScale(110)}]}>
                 <Animated.View style={[styles.iconContainer, {flex: this.props.flexExpanded}]}>
                     <View style={{flex: 1}}>
-                        <TouchableOpacity >
+                        <TouchableOpacity onPress={this.goBack}>
                             <Image source={IC_BACK}/>
                         </TouchableOpacity>
                     </View>

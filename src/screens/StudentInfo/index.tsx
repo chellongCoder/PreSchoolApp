@@ -11,31 +11,42 @@ import {observable, action} from 'mobx';
 import {observer, inject} from 'mobx-react';
 import {StudentStore, IStudent} from '../../stores/student.store';
 import StudentItem from '../../components/StudentItem';
+import APIBase from '../../services/api/base';
+import {api_getStudentByClass} from '../../services/api';
+import ClassStore from '../../stores/class.store';
 
 interface IProps {
-  studentStore: StudentStore
+  studentStore: StudentStore;
+  classStore: ClassStore
 }
 interface IState {
     scrollY: Animated.Value
 }
-@inject('studentStore')
+@inject('studentStore', 'classStore')
 @observer
 export default class StudentInfo extends Component<IProps, IState> {
     @observable isShowSearchbox: boolean = false;
     constructor(props) {
-        super(props);
-        this.state = {
-            scrollY: new Animated.Value(0)
-        }
+      super(props);
+      this.state = {
+          scrollY: new Animated.Value(0)
+      }
     }
-  @action onSearch = () => {
-    console.log("show")
-    this.isShowSearchbox = !this.isShowSearchbox;
-  }
-  renderItem = ({item, index}) => {
-    return (
-      <StudentItem student={item} key={index}/>
-    )
+    @action onSearch = () => {
+      console.log("show")
+      this.isShowSearchbox = !this.isShowSearchbox;
+    }
+    renderItem = ({item, index}) => {
+      return (
+        <StudentItem student={item} key={index}/>
+      )
+    }
+  async componentDidMount() {
+    const id = this.props.classStore.currentClass.id;
+    console.log("Id", id)
+    let [err, res] = await APIBase.getInstance().get(api_getStudentByClass(id));
+    console.log("res", [err, res]) 
+    this.props.studentStore.setStudent(res);
   }
   render() {
     const headerHeight = this.state.scrollY.interpolate({

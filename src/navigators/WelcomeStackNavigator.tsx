@@ -37,7 +37,7 @@ const routeConfig = {
 };
 
 const navigatorConfig = {
-    initialRouteName: 'Test',
+    initialRouteName: 'Welcome',
     defaultNavigationOptions: {
         header: null,
     },

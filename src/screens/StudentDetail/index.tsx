@@ -7,22 +7,30 @@ import faker from 'faker';
 import commonStyles from '../../utils/commonStyles';
 import {Thumbnail} from 'native-base';
 import {moderateScale} from '../../utils/scale';
+import {observer, inject} from 'mobx-react';
+import {StudentStore} from '../../stores/student.store';
+import {getGender} from '../../utils/common';
 
-const student = {
-    id: 1,
-    last_name: faker.name.lastName(),
-    first_name: faker.name.firstName(),
-    gender: Math.round(Math.random()),
-    birthday: faker.date.past(),
-    address: faker.address.country(),
-    parent_id: 1,
-    weight: (Math.random() * 100 + 1).toFixed(2),
-    height: (Math.random() * 200 + 1).toFixed(2),
-    avatar: faker.image.imageUrl(),
-    school: 1,
-    class: 1
+// const student = {
+//     id: 1,
+//     last_name: faker.name.lastName(),
+//     first_name: faker.name.firstName(),
+//     gender: Math.round(Math.random()),
+//     birthday: faker.date.past(),
+//     address: faker.address.country(),
+//     parent_id: 1,
+//     weight: (Math.random() * 100 + 1).toFixed(2),
+//     height: (Math.random() * 200 + 1).toFixed(2),
+//     avatar: faker.image.imageUrl(),
+//     school: 1,
+//     class: 1
+// }
+interface IProp {
+    studentStore: StudentStore
 }
-export default class StudentDetail extends Component {
+@inject("studentStore")
+@observer
+export default class StudentDetail extends Component<IProp> {
     render() {
         const header = [
             {school: "school", icon: IC_SCHOOL},
@@ -32,7 +40,21 @@ export default class StudentDetail extends Component {
             {weight: "weight", icon: IC_INFO},
             {height: "height", icon: IC_INFO},
             {address: "address", icon: IC_ADDRESS},    
-        ]
+        ];
+        const student = {
+            id: 1,
+            last_name: this.props.studentStore.currentStudent.last_name,
+            first_name: this.props.studentStore.currentStudent.first_name,
+            gender: getGender(this.props.studentStore.currentStudent.gender),
+            birthday:new Date(this.props.studentStore.currentStudent.birthday).toLocaleDateString('en-GB') ,
+            address: this.props.studentStore.currentStudent.address,
+            parent_id: this.props.studentStore.currentStudent.parent.first_name,
+            weight: this.props.studentStore.currentStudent.weight,
+            height: this.props.studentStore.currentStudent.height,
+            avatar: this.props.studentStore.currentStudent.avatar,
+            school: this.props.studentStore.currentStudent.school.school_name,
+            class: `${this.props.studentStore.currentStudent.class.grade}${this.props.studentStore.currentStudent.class.class_name}`,
+        }
         return (
             <View style={styles.container}>
                 <HeaderCommon

@@ -16,6 +16,7 @@ export interface ISchool {
     description: string,
     userID: number
 }
+
 export interface ITeacher {
     last_name: string,
     first_name: string,
@@ -63,6 +64,9 @@ export class UserStore {
             await APIBase.getInstance().setAPIKey(res.accesskey);
         }
         return [err, res];
+    }
+    @action setUser = (user: any) => {
+        this.user = user;
     }
 
     @action logout = async () => {

@@ -3,14 +3,21 @@ import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import {moderateScale} from '../../utils/scale';
 import commonStyles from '../../utils/commonStyles';
 import {IC_NEXT} from '../../utils/icons';
-import {IStudent} from '../../stores/student.store';
+import {IStudent, StudentStore} from '../../stores/student.store';
 import NavigationServices from '../../navigators/NavigationServices';
+import {toJS} from 'mobx';
+import {observer, inject} from 'mobx-react';
 
 interface IProp {
-    student: IStudent
+    student: IStudent;
+    studentStore: StudentStore
 }
+@inject("studentStore")
+@observer
 export default class StudentItem extends Component<IProp> {
     navigateToDetail = () => {
+        console.log("student", toJS(this.props.student));
+        this.props.studentStore.changeCurrentStudent(this.props.student);
         NavigationServices.navigate('StudentDetail', null);
     }
     render() {

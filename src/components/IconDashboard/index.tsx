@@ -11,16 +11,20 @@ interface IProps {
     icon: ImageSourcePropType,
     style?: StyleProp<ViewStyle>,
     title: string,
-    userStore: UserStore
+    userStore: UserStore,
+    routeRole12: string,
+    routeRole11: string,
+    action: () => Promise<any>;
 }
 @inject('userStore')
 @observer
 export default class IconDashboard extends Component<IProps> {
-    navigate = () => {
+    navigate = async () => {
+        await this.props.action();
         if(this.props.userStore.user.role === ROLE.PARENT) {
-            NavigationServices.navigate("StudentDetail", null);    
+            NavigationServices.navigate(this.props.routeRole12, null);    
         } else {
-            NavigationServices.navigate("StudentInfo", null);
+            NavigationServices.navigate(this.props.routeRole11, null);
         }
     }
   render() {

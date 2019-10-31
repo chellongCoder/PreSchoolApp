@@ -49,3 +49,15 @@ export const setLanguage = async (lang: any) => {
 
 export const HEADER_EXPANDED_HEIGHT = moderateScale(110);
 export const HEADER_COLLAPSED_HEIGHT =moderateScale(60);
+
+export const getGender = (num: number) => {
+    switch (num) {
+        case 1:
+            return "Man";
+            case 2:
+                return "Woman";
+                case 3:
+                    return "Other";
+    
+    }
+}
