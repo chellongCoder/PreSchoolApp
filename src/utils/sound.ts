@@ -1,6 +1,6 @@
 import { Alert } from 'react-native';
 
-var Sound = require('react-native-sound');
+import Sound from 'react-native-sound';
 export default class SoundPlayer {
 
     private static instance: SoundPlayer;
@@ -13,14 +13,14 @@ export default class SoundPlayer {
         console.log('====================================');
         console.log('start ', url);
         console.log('====================================');
-        this.sound = new Sound(url, null, this.onStart);
+        this.sound = new Sound(require('./CaptureSound.mp3'), "", this.onStart);
     }
 
-    startBundle(url) {
+    startBundle(url, callback) {
         console.log('====================================');
         console.log('start ', url);
         console.log('====================================');
-        this.sound = new Sound(url, Sound.MAIN_BUNDLE, this.onStart);
+        this.sound = new Sound(url, Sound.MAIN_BUNDLE, (err) => this.onStart(err, callback));
     }
 
     stop() {
@@ -33,7 +33,8 @@ export default class SoundPlayer {
             this.sound.release();
     }
 
-    private onStart = (err) => {
+    private onStart = (err, callback) => {
+        console.log("err", err);
         if (err) {
             Alert.alert("Không tải được âm thanh.");
             return;
@@ -45,6 +46,7 @@ export default class SoundPlayer {
         this.sound.play((success) => {
             if (success) {
                 console.log('successfully finished playing');
+                callback();
             } else {
                 console.log('playback failed due to audio decoding errors');
             }
@@ -62,7 +64,7 @@ export default class SoundPlayer {
         this.instance.start(url);
     }
 
-    static playBundle(url) {
+    static playBundle(url, callback) {
         if (!this.instance) {
             this.instance = new SoundPlayer();
         } else {
@@ -70,7 +72,7 @@ export default class SoundPlayer {
             this.instance.release();
         }
 
-        this.instance.startBundle(url);
+        this.instance.startBundle(url, callback);
     }
 
     static stop() {

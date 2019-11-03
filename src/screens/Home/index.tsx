@@ -5,11 +5,12 @@ import HeaderCustom from '../../components/HeaderCustom';
 import {Container} from 'native-base';
 import styles from './styles';
 import CardCustom from '../../components/CardCustom';
-import {IC_INFO_STUDENT, IC_STUDY_RESULT, IC_STUDY_GUIDE, IC_ABSENSE, IC_TEACHER, IC_FEE, IC_SCHOOL_INFO, IC_MEAL, IC_TKB} from '../../utils/icons';
+import {IC_INFO_STUDENT, IC_STUDY_RESULT, IC_STUDY_GUIDE, IC_ABSENSE, IC_TEACHER, IC_FEE, IC_SCHOOL_INFO, IC_MEAL, IC_TKB, IC_SCAN, IC_QR_CODE} from '../../utils/icons';
 import {inject, observer} from 'mobx-react';
 import ClassStore from '../../stores/class.store';
 import {UserStore, ROLE} from '../../stores/user.store';
 import {StudentStore} from '../../stores/student.store';
+import NavigationServices from '../../navigators/NavigationServices';
 
 interface IProps {
   classStore: ClassStore;
@@ -75,6 +76,22 @@ export default class Home extends Component<IProps> {
       key: 0,
       icon: IC_TKB,
       title: "Thời khoá biểu"
+    },
+    {
+      key: 0,
+      icon: IC_SCAN,
+      title: "Quét mã",
+      action: () => {
+        NavigationServices.navigate("ScanQR", null);
+      }
+    },
+    {
+      key: 1,
+      icon: IC_QR_CODE,
+      title: "Mã của tôi",
+      action: () => {
+        NavigationServices.navigate("MyQRCode", null);
+      }
     }
   ]
   render() {

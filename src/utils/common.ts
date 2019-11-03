@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage, Alert, PermissionsAndroid } from 'react-native';
 import { EASY } from '../config';
 import {moderateScale} from './scale';
 
@@ -61,3 +61,25 @@ export const getGender = (num: number) => {
     
     }
 }
+
+export async function requestCameraPermission() {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.CAMERA, {
+          'title': 'Camera App Permission',
+          'message': 'Camera App needs access to your camera '
+        }
+      )
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+
+        return true;
+      } else {
+        Alert.alert("CAMERA permission denied");
+        return false;
+      }
+    } catch (err) {
+        Alert.alert("Camera permission err", err);
+        console.warn(err);
+        return false;
+    }
+  }

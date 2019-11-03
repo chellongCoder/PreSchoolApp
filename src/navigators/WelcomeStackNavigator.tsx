@@ -8,6 +8,8 @@ import BottomTabbar from '../screens/BottomTabbar';
 import StudentInfo from '../screens/StudentInfo';
 import StudentDetail from '../screens/StudentDetail';
 import Test from '../Test';
+import MyQRCode from '../screens/MyQRCode';
+import ScanQR from '../screens/ScanQR';
 
 const routeConfig = {
     QualificationTest: {
@@ -30,6 +32,12 @@ const routeConfig = {
     },
     StudentDetail: {
         screen: StudentDetail
+    },
+    MyQRCode: {
+        screen: MyQRCode
+    },
+    ScanQR: {
+        screen: ScanQR
     },
     Test: {
         screen: Test

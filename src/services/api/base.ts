@@ -6,7 +6,7 @@ export default class APIBase {
     private static instance: APIBase;
     
     private constructor() {
-        this.domain = 'http://localhost:8080';
+        this.domain = 'http://192.168.0.111:8080';
     }
     
     public static getInstance() {

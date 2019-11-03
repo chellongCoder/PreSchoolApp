@@ -33,6 +33,8 @@ export const IC_LOGOUT = require('../../assets/icon/icon-logout.png');
 export const IC_SCHOOL_INFO = require('../../assets/icon/school_info.png');
 export const IC_MEAL = require('../../assets/icon/meal_type.png');
 export const IC_TKB = require('../../assets/icon/icon-tkb.png');
+export const IC_SCAN = require('../../assets/icon/scan_qr.png');
+export const IC_QR_CODE = require('../../assets/icon/qr_code.png');
 
 
 

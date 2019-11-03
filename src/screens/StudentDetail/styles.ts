@@ -2,6 +2,7 @@ import {StyleSheet} from 'react-native';
 import commonColor from '../../utils/commonColor';
 import {moderateScale} from '../../utils/scale';
 
+
 const styles = StyleSheet.create({
     container: {
         flex: 1
