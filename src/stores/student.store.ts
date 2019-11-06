@@ -3,7 +3,7 @@ import faker from 'faker';
 import {IParent, ISchool} from './user.store';
 import {IClass} from './class.store';
 import APIBase from '../services/api/base';
-import {api_getStudentByParent} from '../services/api';
+import {api_getStudentByParent, api_qrCodeCheckin} from '../services/api';
 import NavigationServices from '../navigators/NavigationServices';
 
 export interface IStudent {
@@ -79,9 +79,13 @@ export class StudentStore {
   @action getStudentByParent = async (idParent) => {
     let [err, res] = await APIBase.getInstance().get(api_getStudentByParent(idParent));
     console.log("result", [err, res])
-    if(!err && res) {
-        this.currentStudent = res[0];
-        NavigationServices.navigate("StudentDetail", null);
-    }
+    return [err, res];
   }
+
+  @action addToQRCodeCheckin = async (data) => {
+    console.log("data", data);
+    let [err, res] = await APIBase.getInstance().post(api_qrCodeCheckin(), data);
+    console.log("[err, res]", [err, res])
+    return [err, res];
+  } 
 }

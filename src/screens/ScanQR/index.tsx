@@ -10,7 +10,7 @@ export default class ScanQR extends Component {
         console.log("value", value);
         if(!this.value) {
             SoundPlayer.playBundle('CaptureSound.wav', () => {
-                NavigationServices.navigate("MyQRCode", null);
+                NavigationServices.navigate("CheckinSuccess", value);
             });
         }
         this.value = value;

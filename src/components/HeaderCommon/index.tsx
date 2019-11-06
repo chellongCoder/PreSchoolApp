@@ -34,7 +34,7 @@ export default class HeaderCommon extends Component<IProps> {
                     </View>
                     <View style={{flex: 1, alignItems: 'flex-end'}}>
                         <TouchableOpacity onPress={this.props.onClickIconRight}>
-                            <Image source={this.props.iconRight}/>
+                            <Image style={commonStyles.imageMedium} source={this.props.iconRight}/>
                         </TouchableOpacity>
                     </View>
                 </Animated.View>

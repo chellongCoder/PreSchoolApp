@@ -14,6 +14,7 @@ const codePushOptions = {
     deploymentKey: deploymentKeys[Platform.OS].staging,
 };
 
+console.disableYellowBox = true
 class App extends React.Component<any, any> {
     async componentDidMount() {
         SplashScreen.hide();

@@ -52,14 +52,15 @@ export const HEADER_COLLAPSED_HEIGHT =moderateScale(60);
 
 export const getGender = (num: number) => {
     switch (num) {
-        case 1:
+        case 0:
             return "Man";
-            case 2:
+            case 1:
                 return "Woman";
-                case 3:
+                case 2:
                     return "Other";
     
     }
+    return "";
 }
 
 export async function requestCameraPermission() {
@@ -83,3 +84,21 @@ export async function requestCameraPermission() {
         return false;
     }
   }
+
+export function getPreviousDay (date: Date) {
+  const today = new Date(date)
+
+  const tomorrow = new Date(today)
+
+  tomorrow.setDate(tomorrow.getDate() - 1);
+  return new Date(tomorrow);
+}
+
+export function getNextDay (date: Date) {
+  const today = new Date(date)
+
+  const tomorrow = new Date(today)
+
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  return new Date(tomorrow);
+}

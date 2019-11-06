@@ -4,6 +4,9 @@ import {NotificationStore} from './notification.store';
 import {StudentStore} from './student.store';
 import {UserStore} from './user.store';
 import ClassStore from './class.store';
+import {QRCodeStore} from './qrcode.store';
+import SchoolStore from './school.store';
+import TeacherStore from './teacher.store';
 
 export function createStores() {
     const loadingStore = new LoadingStore();
@@ -12,6 +15,9 @@ export function createStores() {
     const studentStore = new StudentStore();
     const userStore = new UserStore();
     const classStore = new ClassStore();
+    const qrCodeStore = new QRCodeStore()
+    const schoolStore = new SchoolStore()
+    const teacherStore = new TeacherStore();
 
     return {
         loadingStore,
@@ -19,6 +25,9 @@ export function createStores() {
         notificationStore,
         studentStore,
         userStore,
-        classStore
+        classStore,
+        qrCodeStore,
+        schoolStore,
+        teacherStore
     };
 }

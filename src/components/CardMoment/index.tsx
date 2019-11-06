@@ -4,9 +4,10 @@ import styles from './styles';
 import {Card, CardItem, Left, Thumbnail, Body, Text, Button, Icon, Content, Right} from 'native-base';
 import commonStyles from '../../utils/commonStyles';
 import {IC_DOWN, IC_SHARE, IC_LIKE} from '../../utils/icons';
+import {Moment} from '../../stores/moment.store';
 
 interface IProps {
-    moment: any
+    moment: Moment
 }
 
 export default class CardMoment extends Component<IProps> {
@@ -16,9 +17,9 @@ export default class CardMoment extends Component<IProps> {
             <Card style={{shadowOpacity: 0}}>
                 <CardItem>
                 <Left>
-                    <Thumbnail source={{uri: 'https://cdn2.vectorstock.com/i/thumb-large/23/81/default-avatar-profile-icon-vector-18942381.jpg'}} />
+                    <Thumbnail source={{uri: this.props.moment.teacher.avatar}} />
                     <Body>
-                        <Text style={commonStyles.boldText}>{this.props.moment.author}</Text>
+                        <Text style={commonStyles.boldText}>{`${this.props.moment.teacher.first_name} ${this.props.moment.teacher.last_name}`}</Text>
                         <Text note>8, Nov</Text>
                     </Body>
                     <View style={styles.dropdown}>
@@ -29,7 +30,11 @@ export default class CardMoment extends Component<IProps> {
                 <CardItem>
                 <Body>
                     <View style={styles.imageContainer}>
-                        <Image source={{uri: this.props.moment.image}} style={{resizeMode: 'contain', height: "100%", width: "100%",}}/>
+                        {
+                            this.props.moment.image.map((value, index) => {
+                                return (<Image key={index} source={{uri: value.path}} style={{resizeMode: 'contain', height: "100%", width: "100%",}}/>)
+                            })
+                        }
                     </View>
                     <Text style={commonStyles.textNote}>
                         {this.props.moment.content}

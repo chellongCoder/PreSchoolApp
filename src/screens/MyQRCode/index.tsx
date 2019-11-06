@@ -35,15 +35,16 @@ export default class MyQRCode extends Component<IProps> {
             let userID = toJS(this.props.userStore.user).id;
             let [err, res] = await APIBase.getInstance().get(api_getStudentByParent(userID));
             console.log("result", [err, res])
-            let classID = res[0].class.id;
+            let classID = res[0].class[0].id;
             let studentID = res[0].id;
-            this.changeValue(toJS({studentID, classID}));
+            this.changeValue({studentID, classID});
         }
         
         
     }
     render() {
         const _class = this.value ? toJS(this.value) : null;
+        console.log(_class)
         // {
         //     "id": 1,
         //     class_name: "Q",

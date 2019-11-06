@@ -7,10 +7,12 @@ import {IStudent, StudentStore} from '../../stores/student.store';
 import NavigationServices from '../../navigators/NavigationServices';
 import {toJS} from 'mobx';
 import {observer, inject} from 'mobx-react';
+import {getGender} from '../../utils/common';
 
 interface IProp {
     student: IStudent;
-    studentStore: StudentStore
+    studentStore: StudentStore,
+    iconRight: any;
 }
 @inject("studentStore")
 @observer
@@ -28,10 +30,10 @@ export default class StudentItem extends Component<IProp> {
             style={styles.container}>
                 <View style={styles.info}>
                     <Text style={commonStyles.defaultText}> {student.first_name} </Text>
-                    <Text style={commonStyles.textNote}> {student.gender} </Text>
+                    <Text style={commonStyles.textNote}> {getGender(student.gender)} </Text>
                 </View>
                 <View style={styles.icon}>
-                    <Image source={IC_NEXT} style={commonStyles.imageMedium}/>
+                    <Image source={this.props.iconRight} style={commonStyles.imageMedium}/>
                 </View>
             </TouchableOpacity>
         )

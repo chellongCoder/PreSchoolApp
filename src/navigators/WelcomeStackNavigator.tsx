@@ -10,6 +10,10 @@ import StudentDetail from '../screens/StudentDetail';
 import Test from '../Test';
 import MyQRCode from '../screens/MyQRCode';
 import ScanQR from '../screens/ScanQR';
+import CheckinSuccess from '../screens/CheckinSuccess';
+import Checkin from '../screens/Checkin';
+import SchoolInfo from '../screens/SchoolInfo';
+import TeacherInfo from '../screens/TeacherInfo';
 
 const routeConfig = {
     QualificationTest: {
@@ -38,6 +42,18 @@ const routeConfig = {
     },
     ScanQR: {
         screen: ScanQR
+    },
+    CheckinSuccess: {
+        screen: CheckinSuccess
+    },
+    Checkin: {
+        screen: Checkin
+    },
+    SchoolInfo: {
+        screen: SchoolInfo
+    },
+    TeacherInfo: {
+        screen: TeacherInfo
     },
     Test: {
         screen: Test

@@ -3,7 +3,7 @@ import { Text, View, Animated, Image, TouchableOpacity, FlatList } from 'react-n
 import styles from './styles';
 import HeaderCommon from '../../components/HeaderCommon';
 import {HEADER_EXPANDED_HEIGHT, HEADER_COLLAPSED_HEIGHT} from '../../utils/common';
-import {IC_SEARCH, IC_X} from '../../utils/icons';
+import {IC_SEARCH, IC_X, IC_NEXT} from '../../utils/icons';
 import {Item, Input} from 'native-base';
 import commonStyles from '../../utils/commonStyles';
 import * as Animatable from 'react-native-animatable';
@@ -29,7 +29,7 @@ export default class StudentInfo extends Component<IProps, IState> {
     constructor(props) {
       super(props);
       this.state = {
-          scrollY: new Animated.Value(0)
+        scrollY: new Animated.Value(0)
       }
     }
     @action onSearch = () => {
@@ -38,7 +38,10 @@ export default class StudentInfo extends Component<IProps, IState> {
     }
     renderItem = ({item, index}) => {
       return (
-        <StudentItem student={item} key={index}/>
+        <StudentItem 
+          iconRight={IC_NEXT}
+          student={item} 
+          key={index}/>
       )
     }
   async componentDidMount() {

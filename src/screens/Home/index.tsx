@@ -11,13 +11,19 @@ import ClassStore from '../../stores/class.store';
 import {UserStore, ROLE} from '../../stores/user.store';
 import {StudentStore} from '../../stores/student.store';
 import NavigationServices from '../../navigators/NavigationServices';
+import {QRCodeStore} from '../../stores/qrcode.store';
+import SchoolStore from '../../stores/school.store';
+import TeacherStore from '../../stores/teacher.store';
 
 interface IProps {
   classStore: ClassStore;
   userStore: UserStore;
   studentStore: StudentStore;
+  qrCodeStore: QRCodeStore;
+  schoolStore: SchoolStore;
+  teacherStore: TeacherStore;
 }
-@inject('classStore', 'userStore', 'studentStore')
+@inject('classStore', 'schoolStore', 'userStore', 'studentStore', 'qrCodeStore', 'teacherStore')
 @observer
 export default class Home extends Component<IProps> {
   icons = [
@@ -29,7 +35,11 @@ export default class Home extends Component<IProps> {
         if(this.props.userStore.user.role === ROLE.TEACHER) {
           await this.props.classStore.getClassByTeacher(this.props.userStore.user.id);
         } else {
-          await this.props.studentStore.getStudentByParent(this.props.userStore.user.id);
+          let [err, res] = await this.props.studentStore.getStudentByParent(this.props.userStore.user.id);
+          if(!err && res) {
+            this.props.studentStore.changeCurrentStudent(res[0]);
+            NavigationServices.navigate("StudentDetail", null);
+        }
         }
       }
     },
@@ -41,7 +51,10 @@ export default class Home extends Component<IProps> {
     {
       key: 0,
       icon: IC_STUDY_GUIDE,
-      title: "Lộ trình học tập"
+      title: "Điểm danh",
+      action: () => {
+        this.props.qrCodeStore.navigate();
+      }
     },
     {
       key: 0,
@@ -53,7 +66,10 @@ export default class Home extends Component<IProps> {
     {
       key: 1,
       icon: IC_TEACHER,
-      title: "Thông tin giáo viên"
+      title: "Thông tin giáo viên",
+      action: () => {
+        this.props.teacherStore.onNavigate()
+      }
     },
     {
       key: 0,
@@ -65,7 +81,10 @@ export default class Home extends Component<IProps> {
     {
       key: 0,
       icon: IC_SCHOOL_INFO,
-      title: "Thông tin trường học"
+      title: "Thông tin trường học",
+      action: () => {
+        this.props.schoolStore.onNavigate()
+      }
     },
     {
       key: 1,

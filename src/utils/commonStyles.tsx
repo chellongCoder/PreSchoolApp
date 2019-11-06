@@ -18,6 +18,11 @@ const commonStyles = StyleSheet.create({
     backgroundColor: "#79B45D",
     height: APPBAR_HEIGHT
   },
+  imageContain: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'contain'
+  },
   choiceButton: {
     flexDirection: "row",
     flexWrap: "wrap",

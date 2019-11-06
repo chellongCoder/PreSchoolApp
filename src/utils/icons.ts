@@ -35,6 +35,17 @@ export const IC_MEAL = require('../../assets/icon/meal_type.png');
 export const IC_TKB = require('../../assets/icon/icon-tkb.png');
 export const IC_SCAN = require('../../assets/icon/scan_qr.png');
 export const IC_QR_CODE = require('../../assets/icon/qr_code.png');
+export const IC_CHECKIN_SUCCESS = require('../../assets/icon/checkin_success.png');
+export const IC_PREVIOUS = require('../../assets/icon/icon-previous.png');
+export const IC_YEAR = require('../../assets/icon/icon-year.png');
+export const IC_PHONE = require('../../assets/icon/icon-phone.png');
+export const IC_MAIL = require('../../assets/icon/icon-mail.png');
+export const IC_DOMAIN = require('../../assets/icon/icon-domain.png');
+export const IC_DESCRIPTION = require('../../assets/icon/icon-description.png');
+export const IC_IMAGE = require('../../assets/icon/icon-image.png');
+export const IC_UPLOAD = require('../../assets/icon/icon-upload.png');
+
+
 
 
 

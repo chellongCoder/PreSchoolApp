@@ -6,7 +6,7 @@ export default class APIBase {
     private static instance: APIBase;
     
     private constructor() {
-        this.domain = 'http://192.168.0.111:8080';
+        this.domain = 'http://192.168.10.163:8080';
     }
     
     public static getInstance() {
@@ -16,14 +16,14 @@ export default class APIBase {
         return this.instance;
     }
 
-    post(path: string, data: any, dataKey: string = '') {
+    post(path: string, data: any, contentType?: string,  dataKey: string = '') {
         return this.raw(
             this.domain + path,
             {
                 body: JSON.stringify(data),
                 headers: {
                     Accept: 'application/json',
-                    'Content-Type': 'application/json',
+                    'Content-Type': contentType ? contentType : 'application/json',
                     Authorization: `Bearer ${this.apiKey}`,
                 },
                 method: 'POST',
