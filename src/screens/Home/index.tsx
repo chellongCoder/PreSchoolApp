@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, Linking } from 'react-native'
 import commonStyles from '../../utils/commonStyles';
 import HeaderCustom from '../../components/HeaderCustom';
 import {Container} from 'native-base';
@@ -56,13 +56,13 @@ export default class Home extends Component<IProps> {
         this.props.qrCodeStore.navigate();
       }
     },
-    {
-      key: 0,
-      icon: IC_ABSENSE,
-      title: "Xin nghỉ học",
-      routeRole11: "StudentInfo",
-      routeRole12: "StudentDetail",
-    },
+    // {
+    //   key: 0,
+    //   icon: IC_ABSENSE,
+    //   title: "Xin nghỉ học",
+    //   routeRole11: "StudentInfo",
+    //   routeRole12: "StudentDetail",
+    // },
     {
       key: 1,
       icon: IC_TEACHER,
@@ -71,11 +71,11 @@ export default class Home extends Component<IProps> {
         this.props.teacherStore.onNavigate()
       }
     },
-    {
-      key: 0,
-      icon: IC_FEE,
-      title: "Học phí"
-    }
+    // {
+    //   key: 0,
+    //   icon: IC_FEE,
+    //   title: "Học phí"
+    // }
   ]
   icons2 = [
     {
@@ -94,7 +94,10 @@ export default class Home extends Component<IProps> {
     {
       key: 0,
       icon: IC_TKB,
-      title: "Thời khoá biểu"
+      title: "Thời khoá biểu",
+      action: () => {
+        Linking.openURL("https://ks.nopain.codes/").catch((err) => console.error('An error occurred', err));
+      }
     },
     {
       key: 0,

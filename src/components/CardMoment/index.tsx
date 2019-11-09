@@ -1,16 +1,29 @@
 import React, { Component } from 'react'
-import {  View, Image } from 'react-native'
+import {  View, Image, TouchableOpacity } from 'react-native'
 import styles from './styles';
 import {Card, CardItem, Left, Thumbnail, Body, Text, Button, Icon, Content, Right} from 'native-base';
 import commonStyles from '../../utils/commonStyles';
-import {IC_DOWN, IC_SHARE, IC_LIKE} from '../../utils/icons';
-import {Moment} from '../../stores/moment.store';
+import {IC_DOWN, IC_SHARE, IC_LIKE, IC_REDHEART} from '../../utils/icons';
+import {Moment, MommentStore} from '../../stores/moment.store';
+import {moderateScale} from '../../utils/scale';
+import {observer, inject} from 'mobx-react';
+import {observable, action} from 'mobx';
 
 interface IProps {
-    moment: Moment
+    moment: Moment;
+    momentStore: MommentStore;
 }
 
+@inject("momentStore")
+@observer
 export default class CardMoment extends Component<IProps> {
+    @observable isHeart : boolean = false;
+    @action onHeart = () => {
+        this.isHeart = true;
+        // let likes = this.props.moment.likes;
+        this.props.moment.uplike();
+        console.log("like", this.props.moment.likes);
+    }
     render() {
         return (
             <Content scrollEnabled={false} style={styles.container}>
@@ -29,16 +42,21 @@ export default class CardMoment extends Component<IProps> {
                 </CardItem>
                 <CardItem>
                 <Body>
-                    <View style={styles.imageContainer}>
-                        {
-                            this.props.moment.image.map((value, index) => {
-                                return (<Image key={index} source={{uri: value.path}} style={{resizeMode: 'contain', height: "100%", width: "100%",}}/>)
-                            })
-                        }
-                    </View>
                     <Text style={commonStyles.textNote}>
                         {this.props.moment.content}
                     </Text>
+                    <View style={styles.imageContainer}>
+                        {
+                            this.props.moment.image && this.props.moment.image.map((value, index) => {
+                                return (
+                                    <View style={{width: moderateScale(100), height: moderateScale(100), marginLeft: moderateScale(10), }} key={index}>
+                                        <Image source={{uri: value.path}} style={{resizeMode: 'contain', height: "100%", width: "100%",}}/>
+                                    </View>
+                                )
+                            })
+                        }
+                    </View>
+                    
                 </Body>
                 </CardItem>
                 <CardItem>
@@ -46,10 +64,10 @@ export default class CardMoment extends Component<IProps> {
                         <Image source={IC_SHARE} style={commonStyles.imageMedium}/>
                     </Left>
                     <Right>
-                        <View style={styles.heart}>
+                        <TouchableOpacity disabled={this.isHeart} onPress={this.onHeart} style={styles.heart}>
                             <Text style={commonStyles.textNote}>{this.props.moment.likes}</Text>
-                            <Image source={IC_LIKE} style={commonStyles.imageMedium}/>
-                        </View>
+                            <Image source={this.isHeart ? IC_REDHEART : IC_LIKE } style={commonStyles.imageMedium}/>
+                        </TouchableOpacity>
                     </Right>
                 </CardItem>
             </Card>

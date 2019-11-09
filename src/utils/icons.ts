@@ -44,6 +44,7 @@ export const IC_DOMAIN = require('../../assets/icon/icon-domain.png');
 export const IC_DESCRIPTION = require('../../assets/icon/icon-description.png');
 export const IC_IMAGE = require('../../assets/icon/icon-image.png');
 export const IC_UPLOAD = require('../../assets/icon/icon-upload.png');
+export const IC_REDHEART = require('../../assets/icon/redHeart.png');
 
 
 

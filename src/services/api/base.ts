@@ -6,7 +6,7 @@ export default class APIBase {
     private static instance: APIBase;
     
     private constructor() {
-        this.domain = 'http://192.168.10.163:8080';
+        this.domain = 'http://192.168.31.80:8080';
     }
     
     public static getInstance() {
@@ -73,6 +73,21 @@ export default class APIBase {
     public async resetAPIKey() {
         await this.setAPIKey('')
     }
+
+    futch = (url, opts: any ={}, onProgress) => {
+        console.log( this.domain + url, opts)
+        return new Promise( (res, rej)=>{
+            let xhr = new XMLHttpRequest();
+            xhr.open(opts.method || 'get', this.domain + url);
+            for (let k in opts.headers||{})
+                xhr.setRequestHeader(k, opts.headers[k]);
+            xhr.onload = (e: any) => res(e.target);
+            xhr.onerror = rej;
+            if (xhr.upload && onProgress)
+                xhr.upload.onprogress = onProgress; // event.loaded / event.total * 100 ; //event.lengthComputable
+            xhr.send(opts.body);
+        });
+    }
     
     private async raw(url: string, params: any, dataKey: string = '') {
         try {
@@ -101,5 +116,7 @@ export default class APIBase {
             return [errorMessage, null, null];
         }
     }
+
+   
     
 }

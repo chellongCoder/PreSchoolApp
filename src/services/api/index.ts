@@ -37,3 +37,7 @@ export function api_getMoment() {
   return `/api/moment`;
 }
 
+export function api_uploadImage() {
+  return `/api/uploadImage`;
+}
+

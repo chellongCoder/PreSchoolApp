@@ -1,4 +1,4 @@
-package com.mobxbasestarter;
+package com.smartcomviettel;
 
 import android.content.Intent;
 import android.os.Bundle;

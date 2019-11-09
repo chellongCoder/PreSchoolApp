@@ -12,9 +12,13 @@ const styles = StyleSheet.create({
         top: moderateScale(10)
     },
     imageContainer: {
-        height: moderateScale(100),
-        width: 300,
-        alignSelf: 'center',
+        // height: moderateScale(500),
+        width: moderateScale(300),
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        // backgroundColor: 'blue'
     },
     heart: {
         flexDirection: 'row',

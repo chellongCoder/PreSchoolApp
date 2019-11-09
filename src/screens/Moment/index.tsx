@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, Animated, ScrollView, SafeAreaView, FlatList, Image, TouchableOpacity } from 'react-native'
+import { Text, View, Animated, ScrollView, SafeAreaView, FlatList, Image, TouchableOpacity, Alert } from 'react-native'
 import styles from './styles';
 import HeaderCommon from '../../components/HeaderCommon';
 import commonColor from '../../utils/commonColor';
@@ -17,6 +17,10 @@ import commonStyles from '../../utils/commonStyles';
 import {toJS, observable, action} from 'mobx';
 import PopupModal from '../../components/PopupModal';
 import {ButtonCustom} from '../../components';
+import {pickerImage} from '../../utils/imagesPicker';
+import APIBase from '../../services/api/base';
+import {api_uploadImage} from '../../services/api';
+import faker from 'faker';
 
 interface IState {
   scrollY: Animated.Value
@@ -29,10 +33,13 @@ interface IProps {
   userStore: UserStore;
   loadingStore: LoadingStore;
 }
+
 @inject('momentStore', 'userStore', 'loadingStore')
 @observer
 export default class Moment extends Component<IProps, IState> {
   @observable isShowPopup: boolean = false;
+  @observable images: any[] = [];
+  content: string = "";
 
   constructor(props) {
     super(props);
@@ -59,17 +66,101 @@ export default class Moment extends Component<IProps, IState> {
     )
   }
 
+  @action pickerImage = () => {
+    pickerImage((source: any) => {
+      console.log("url", source);
+      this.images.push(source);
+      
+    });
+  }
+
+  upload = async () => {
+    this.popUpUploadForm();
+    Alert.alert("Sẽ có thông báo khi upload xong.")
+    if(!this.images.length) {
+      await this.uploadMomentNoImage();
+      return;
+    }
+    const data = new FormData();
+    for (let index = 0; index < this.images.length; index++) {
+      const element = this.images[index];
+      data.append(`file${index}`, {
+        uri: element.uri,
+        type: element.type,
+        name: `${faker.internet.userName()}.${element.uri.split(".")[1]}`
+      });
+    }
+
+    APIBase.getInstance().futch(api_uploadImage(), {
+      method: 'post',
+      body: data
+    }, (progressEvent) => {
+      const progress = progressEvent.loaded / progressEvent.total;
+      console.log(progress);
+    }).then(async (res: any) => {
+      console.log(res)
+      console.log("res", JSON.parse(res.response))
+      await this.uploadMomentHasImage(res);
+    }, (err) => console.log(err))
+  }
+
+  uploadMomentHasImage = async (rs: any) => {
+    let json = JSON.parse(rs.response).data;
+    let imgs: any[] = [];
+    for (const image of json) {
+      imgs.push({id: image.id, path: image.Location})
+    }
+    let data = {
+      content: this.content,
+      author_id: toJS(this.props.userStore.user).id,
+      images: imgs
+    }
+    console.log("data", data);
+    
+    const [err, res] = await this.props.momentStore.addMomment(data, toJS(this.props.userStore.user));
+    console.log("res", res);
+    Alert.alert("Upload thành công");
+  }
+
+  uploadMomentNoImage = async () => {
+    let data = {
+      content: this.content,
+      author_id: toJS(this.props.userStore.user).id,
+    };
+    console.log("data no image", data);
+    const [err, res] = await this.props.momentStore.addMomment(data, toJS(this.props.userStore.user));
+    console.log("res", res);
+    Alert.alert("Upload thành công");
+  } 
+
+  onChangeContent = (value: string) => {
+    this.content = value;
+  }
+
   renderForm = () => {
     return (
       <View style={styles.form}>
-          <Textarea style={styles.textArea} rowSpan={5} placeholder="Textarea" />
-          <View style={styles.uploadImage}>
-            <View style={styles.imageUpload}>
-              <Image source={IC_UPLOAD} style={commonStyles.imageContain}/>
+          <Textarea onChangeText={this.onChangeContent} style={styles.textArea} rowSpan={5} placeholder="Textarea" />
+          
+          <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+            {
+              this.images.map((value, index) => {
+                return (
+                  <View style={{alignItems: 'center'}} key={index}>
+                    <Image style={commonStyles.imageHuge} source={{uri: value.uri}}/>
+                  </View>
+                )
+              })
+            }
+            <View style={styles.uploadImage}>
+              <TouchableOpacity onPress={this.pickerImage} style={styles.imageUpload}>
+                <Image source={IC_UPLOAD} style={commonStyles.imageContain}/>
+              </TouchableOpacity>
             </View>
           </View>
+          
           <View style={{padding: moderateScale(10)}}>
-            <ButtonCustom colors="color5" text="upload"/>
+            <ButtonCustom onPress={this.upload} colors="color5" text="upload"/>
           </View>
       </View>
     )

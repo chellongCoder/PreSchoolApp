@@ -1,4 +1,4 @@
-package com.mobxbasestarter;
+package com.smartcomviettel;
 
 import android.app.Application;
 
@@ -26,6 +26,7 @@ import com.airbnb.android.react.maps.MapsPackage;
 import com.wix.RNCameraKit.RNCameraKitPackage;
 import java.util.Arrays;
 import java.util.List;
+import com.imagepicker.ImagePickerPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -60,7 +61,8 @@ public class MainApplication extends Application implements ReactApplication {
             new SplashScreenReactPackage(),
             new RNI18nPackage(),
             new RNGestureHandlerPackage(),
-            new RNCameraKitPackage()
+            new RNCameraKitPackage(),
+            new ImagePickerPackage(R.style.my_dialog_style)
       );
     }
 
